@@ -20,5 +20,5 @@ if (!$result = $mysqli->query($sql)) {
 
         $nome = $result->fetch_assoc();
 echo "Sometimes I see " . $nome['nome'] . " " . " on TV.";
-
+    }
 ?>  
