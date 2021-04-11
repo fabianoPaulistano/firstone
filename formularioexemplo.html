@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="estilo.css">
  </head>
      <body>
-<form action="salvar_anuncio.php" method="post" enctype="multipart/form-data">
+<form action="buscandoestado.php" method="post" enctype="multipart/form-data">
     <label for="estado">Estado:</label>
       <select name="estado" id="estado" required>
           <option value="">Selecione</option>
@@ -15,13 +15,10 @@
   
       <label for="cidade">Cidade:</label>
       <select name="cidade" id="cidade" disabled required>
-          <option value="">Selecione um estado</option>
+          <option value="">Selecione uma cidade</option>
       </select>
   
-      <label for="bairro">Bairro:</label>
-      <select name="bairro" id="bairro" disabled required>
-          <option value="">Selecione uma cidade</option>
-        
+      
        <button type="submit">Salvar</button>
        </select>
     </form>
