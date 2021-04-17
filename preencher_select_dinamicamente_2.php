@@ -32,7 +32,7 @@ $result = mysqli_query($conn, "SELECT * FROM estados", MYSQLI_USE_RESULT);
 
 # Exibe os registros na tela 
 <?php while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)):; ?>
-    <option> <?php echo $row[2]; ?> </option>
+    <option value = "<?php echo $row [0];?>" > <?php echo $row[2]; ?> </option>
     <?php endwhile; ?>
    
 </select>   
