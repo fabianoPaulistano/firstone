@@ -20,20 +20,23 @@ if (!$conn) {
 # Seleciona o banco de dados 
 $result = mysqli_query($conn, "SELECT * FROM estados", MYSQLI_USE_RESULT);
 
-echo "<select>";  
+?>
+
+<html>
+<head>
+<title> Preencher dinamicamente select </title>
+<meta charset = "UTF-8">
+</head>
+<body>
+<select>  
 
 # Exibe os registros na tela 
-while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) 
-    { 
-//$array_estados = $row["id"] . " " . $row["nome"] . " " . $row["uf"] ;
-        
-       
-        foreach($row as $cc => $estado) 
-        {
-         echo "<option name = 'estado' value = 'estado'> $estado </option>";
-        }  
-             
-        
-    }
-    echo "</select>";    
-?>
+<?php while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)):; ?>
+    <option> <?php echo $row[2]; ?> </option>
+    <?php endwhile; ?>
+   
+</select>   
+   <!-- mysqli_close($conn); -->
+   
+</body>
+</html>   
