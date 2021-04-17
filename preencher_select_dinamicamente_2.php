@@ -18,7 +18,18 @@ if (!$conn) {
 }
 
 # Seleciona o banco de dados 
-$result = mysqli_query($conn, "SELECT * FROM estados", MYSQLI_USE_RESULT);
+$query = "SELECT * FROM estados";
+
+$result = mysqli_query($conn, $query);
+
+$result2 = mysqli_query($conn, $query);
+$options = "";
+    while ($row2 = mysqli_fetch_array($result2, MYSQLI_BOTH))
+    {
+        $options = $options . "<option> $row2[1] </option>";
+
+    }
+
 
 ?>
 
@@ -28,6 +39,8 @@ $result = mysqli_query($conn, "SELECT * FROM estados", MYSQLI_USE_RESULT);
 <meta charset = "UTF-8">
 </head>
 <body>
+
+<!-- primeiro método -->
 <select>  
 
 # Exibe os registros na tela 
@@ -36,6 +49,12 @@ $result = mysqli_query($conn, "SELECT * FROM estados", MYSQLI_USE_RESULT);
     <?php endwhile; ?>
    
 </select>   
+
+<!-- segundo método -->
+<select> 
+    <?php echo $options; ?> 
+</select>    
+
    <!-- mysqli_close($conn); -->
    
 </body>
