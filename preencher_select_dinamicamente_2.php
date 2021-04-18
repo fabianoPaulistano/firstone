@@ -19,6 +19,7 @@ if (!$conn) {
 
 # Seleciona o banco de dados 
 $query = "SELECT * FROM estados";
+$query2 = "SELECT * FROM cidades";
 
 $result = mysqli_query($conn, $query);
 
@@ -27,9 +28,14 @@ $options = "";
     while ($row2 = mysqli_fetch_array($result2, MYSQLI_BOTH))
     {
         $options = $options . "<option> $row2[1] </option>";
-
     }
 
+$result3 = mysqli_query($conn, $query2);
+$options2 = ""; 
+    while ($row3 = mysqli_fetch_array($result3, MYSQLI_BOTH))
+    {
+        $options2 = $options2 . "<option> $row3[1] </option>";
+    }
 
 ?>
 
@@ -41,6 +47,7 @@ $options = "";
 <body>
 
 <!-- primeiro método -->
+<b>Sigla UF </b>
 <select>  
 
 # Exibe os registros na tela 
@@ -51,9 +58,17 @@ $options = "";
 </select>   
 
 <!-- segundo método -->
+</br></br>
+<b> Nome do Estado </b>
 <select> 
     <?php echo $options; ?> 
-</select>    
+</select>  
+</br></br> 
+
+<b> Selecione a cidade </b>
+<select>
+    <?php echo $options2; ?> 
+</select> 
 
    <!-- mysqli_close($conn); -->
    
