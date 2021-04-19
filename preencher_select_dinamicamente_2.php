@@ -70,6 +70,8 @@ $options2 = "";
     <?php echo $options2; ?> 
 </select> 
 
+
+
    <!-- mysqli_close($conn); -->
    
 </body>
