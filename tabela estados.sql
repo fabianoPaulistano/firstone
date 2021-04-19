@@ -2,7 +2,7 @@ CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
   `nome` varchar(75) DEFAULT NULL,
   `uf` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SELECT * FROM estados;
 
