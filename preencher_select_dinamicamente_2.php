@@ -27,14 +27,14 @@ $result2 = mysqli_query($conn, $query);
 $options = "";
     while ($row2 = mysqli_fetch_array($result2, MYSQLI_BOTH))
     {
-        $options = $options . "<option> $row2[1] </option>";
+        $options = $options . '<option value = "'. $row2[0] .'">' . $row2[1] .'</option>';
     }
 
 $result3 = mysqli_query($conn, $query2);
 $options2 = ""; 
     while ($row3 = mysqli_fetch_array($result3, MYSQLI_BOTH))
     {
-        $options2 = $options2 . "<option> $row3[1] </option>";
+        $options2 = $options2 . "<option value ='". $row3[0] . "'>" . $row3[1] . "</option>";
     }
 
 ?>
@@ -47,8 +47,8 @@ $options2 = "";
 <body>
 
 <!-- primeiro método -->
-<b>Sigla UF </b>
-<select>  
+<label><b> UF </b></label>
+<select name = "uf" id = "uf">  
 
 # Exibe os registros na tela 
 <?php while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)):; ?>
@@ -59,14 +59,14 @@ $options2 = "";
 
 <!-- segundo método -->
 </br></br>
-<b> Nome do Estado </b>
-<select> 
+<label><b> Estado </b></label>
+<select name ="estado" id = "estado"> 
     <?php echo $options; ?> 
 </select>  
 </br></br> 
 
-<b> Selecione a cidade </b>
-<select>
+<label><b> Cidade </b></label>
+<select name ="cidade" id = "cidade">
     <?php echo $options2; ?> 
 </select> 
 
