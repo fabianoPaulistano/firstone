@@ -43,27 +43,48 @@ $options2 = "";
 <head>
 <title> Preencher dinamicamente select </title>
 <meta charset = "UTF-8">
+
+<script type = "text/javascript">
+
+window.onload = function() {
+  var uf = document.getElementById("uf");
+  var estado = document.getElementById("estado");
+  var cidade = document.getElementById("cidade");
+}
+
+function val() {
+   var combo_uf = document.getElementById("estado");
+    for (i= 0, i < combo_uf.length, i = i + 1)
+    console.log(combo_uf.options[i]);
+}
+}
+
+
+
+</script> 
+
+
 </head>
 <body>
 
-<!-- primeiro método -->
+<!-- primeiro método PHP -->
 <label><b> UF </b></label>
-<select name = "uf" id = "uf">  
+<select name = "uf" id = "uf" onchange = "val()">  
+<option value = "" disabled selected hidden> Selecione a UF </option>
 
 # Exibe os registros na tela 
 <?php while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)):; ?>
     <option value = "<?php echo $row [0];?>" > <?php echo $row[2]; ?> </option>
     <?php endwhile; ?>
    
-</select>   
+</select>   </br> </br>
 
-<!-- segundo método -->
-</br></br>
+<!-- segundo método PHP -->
+
 <label><b> Estado </b></label>
 <select name ="estado" id = "estado"> 
     <?php echo $options; ?> 
-</select>  
-</br></br> 
+</select>  </br></br> 
 
 <label><b> Cidade </b></label>
 <select name ="cidade" id = "cidade">
