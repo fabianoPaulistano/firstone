@@ -50,14 +50,21 @@ window.onload = function() {
   var uf = document.getElementById("uf");
   var estado = document.getElementById("estado");
   var cidade = document.getElementById("cidade");
+  
 }
 
-function val() {
-   var combo_uf = document.getElementById("estado");
-    for (i= 0, i < combo_uf.length, i = i + 1)
-    console.log(combo_uf.options[i]);
+function showstates() {
+var select = document.getElementById('uf');
+var valuea = select.options[select.selectedIndex].value;
+
+for ()
+var x = document.createElement("option");    
+x.setAttribute("value", "<?php echo $row ['valuea'] ;?>");
+var t = document.createTextNode("<?php echo $row[2] ?>");
+x.appendChild(t);
+document.getElementById("estado").appendChild(x);
 }
-}
+
 
 
 
@@ -69,7 +76,7 @@ function val() {
 
 <!-- primeiro método PHP -->
 <label><b> UF </b></label>
-<select name = "uf" id = "uf" onchange = "val()">  
+<select name = "uf" id = "uf" onchange = "showstates()">  
 <option value = "" disabled selected hidden> Selecione a UF </option>
 
 # Exibe os registros na tela 
@@ -83,7 +90,7 @@ function val() {
 
 <label><b> Estado </b></label>
 <select name ="estado" id = "estado"> 
-    <?php echo $options; ?> 
+   <!--  <?php echo $options; ?> -->
 </select>  </br></br> 
 
 <label><b> Cidade </b></label>
