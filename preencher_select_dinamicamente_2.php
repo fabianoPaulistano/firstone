@@ -21,6 +21,8 @@ if (!$conn) {
 $query = "SELECT * FROM estados";
 $query2 = "SELECT * FROM cidades";
 
+
+
 $result = mysqli_query($conn, $query);
 
 $result2 = mysqli_query($conn, $query);
@@ -36,6 +38,9 @@ $options2 = "";
     {
         $options2 = $options2 . "<option value ='". $row3[0] . "'>" . $row3[1] . "</option>";
     }
+
+$row4 = mysqli_fetch_array($result2, MYSQLI_BOTH)
+
 
 ?>
 
@@ -54,22 +59,20 @@ window.onload = function() {
 }
 
 function showstates() {
-var select = document.getElementById('uf');
-var valuea = select.options[select.selectedIndex].value;
 
-for ()
+var valuea = uf.options[uf.selectedIndex].value;
+<?php 
+$query4 = "SELECT nome FROM estados where id = valuea"; 
+$estado_uf = mysqli_query($conn, $query4);
+while ($dado = $estado_uf) ?>
 var x = document.createElement("option");    
-x.setAttribute("value", "<?php echo $row ['valuea'] ;?>");
-var t = document.createTextNode("<?php echo $row[2] ?>");
+x.setAttribute("value", valuea);
+var t = document.createTextNode("<?php echo [$dado] ?>");
 x.appendChild(t);
 document.getElementById("estado").appendChild(x);
 }
 
-
-
-
 </script> 
-
 
 </head>
 <body>
