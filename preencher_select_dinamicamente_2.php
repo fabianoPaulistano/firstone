@@ -51,23 +51,17 @@ $row4 = mysqli_fetch_array($result2, MYSQLI_BOTH)
 
 <script type = "text/javascript">
 
-window.onload = function() {
-  var uf = document.getElementById("uf");
-  var estado = document.getElementById("estado");
-  var cidade = document.getElementById("cidade");
-  
-}
 
 function showstates() {
-
-var valuea = uf.options[uf.selectedIndex].value;
+var ufa = document.getElementById("uf");
+var valuea = ufa.options[ufa.selectedIndex].value;
 <?php 
 $query4 = "SELECT nome FROM estados where id = valuea"; 
 $estado_uf = mysqli_query($conn, $query4);
-while ($dado = $estado_uf) ?>
+?>
 var x = document.createElement("option");    
 x.setAttribute("value", valuea);
-var t = document.createTextNode("<?php echo [$dado] ?>");
+var t = document.createTextNode("<?php echo $estado_uf ?>");
 x.appendChild(t);
 document.getElementById("estado").appendChild(x);
 }
